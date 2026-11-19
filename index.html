@@ -62,6 +62,21 @@ section{padding:92px 0}
 .final{text-align:center;padding:96px 0}
 .final h2{font-size:clamp(2.1rem,4.4vw,3.3rem);max-width:720px;margin:12px auto 16px}
 .final p{color:var(--muted);max-width:520px;margin:0 auto 28px}
+.stores{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.store{display:inline-flex;align-items:center;gap:12px;background:#1f1a1b;color:#fff;text-decoration:none;padding:12px 22px;border-radius:14px;min-width:200px;transition:transform .25s,box-shadow .25s;box-shadow:0 10px 26px rgba(30,20,20,.22)}
+.store:hover{transform:translateY(-2px)}
+.store svg{width:28px;height:28px}
+.store span{display:flex;flex-direction:column;text-align:left;font-size:1.15rem;font-weight:500;line-height:1.15}
+.store small{font-size:.7rem;font-weight:400;opacity:.8;letter-spacing:.04em}
+.modal{position:fixed;inset:0;z-index:100;background:rgba(36,31,33,.55);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}
+.sheet{position:relative;background:#fff;border-radius:24px;max-width:420px;width:100%;padding:30px 28px 24px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.sheet .x{position:absolute;right:14px;top:10px;border:0;background:none;font-size:1.8rem;color:var(--muted);cursor:pointer}
+.appicon{width:72px;height:72px;border-radius:18px;box-shadow:0 8px 20px rgba(60,35,25,.18)}
+.sheet h3{font-family:var(--serif);font-weight:500;font-size:1.8rem;margin:12px 0 6px}
+.sheet ol{text-align:left;color:var(--muted);padding-left:20px;margin:10px 0 22px}
+.sheet ol li{margin:6px 0}
+.sheet .hint{font-size:.8rem;color:var(--muted);margin:14px 0 0}
 footer{background:#241f21;color:#cbbfb5;font-size:.85rem;padding:34px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer b{color:#fff;font-weight:500}
@@ -73,7 +88,7 @@ footer small{display:block;color:#8f847c;margin-top:6px;max-width:620px}
 <body>
 <nav><div class="wrap">
   <a class="brand" href="#topo"><img src="https://ellevenmkt.github.io/analise-hof/logo-mark.png" alt=""><span><b>FaceScan</b><i>by Angevie</i></span></a>
-  <a class="btn btn-primary" href="https://ellevenmkt.github.io/analise-hof/">Abrir o app</a>
+  <a class="btn btn-primary" href="#baixar" data-dl>Baixar o app</a>
 </div></nav>
 
 <header class="hero" id="topo">
@@ -81,8 +96,8 @@ footer small{display:block;color:#8f847c;margin-top:6px;max-width:620px}
   <div class="wrap">
     <span class="eyebrow">Harmonização orofacial</span>
     <h1>Análise facial <em>inteligente</em> para a sua avaliação.</h1>
-    <p>Da foto do paciente a um relatório claro, com medidas objetivas e sugestões de conduta, em poucos minutos.</p>
-    <div class="cta"><a class="btn btn-primary" href="https://ellevenmkt.github.io/analise-hof/">Conhecer o FaceScan →</a><a class="btn btn-ghost" href="#recursos">Ver os destaques</a></div>
+    <p>Da foto do paciente a um relatório claro, com medidas objetivas e sugestões de conduta, em poucos minutos. Direto no seu celular.</p>
+    <div class="cta"><a class="btn btn-primary" href="#baixar" data-dl>Baixar o app →</a><a class="btn btn-ghost" href="#recursos">Ver os destaques</a></div>
   </div>
   <div class="credit">Foto: <a href="https://unsplash.com/photos/woman-in-white-tank-top-w4Dj3MshHQ0" target="_blank" rel="noopener">Fleur Kaan / Unsplash</a></div>
 </header>
@@ -95,7 +110,7 @@ footer small{display:block;color:#8f847c;margin-top:6px;max-width:620px}
     <li class="reveal"><div><b>Plano sugerido</b><span>Achados organizados com sugestões de conduta.</span></div></li>
     <li class="reveal"><div><b>Atlas anatômico</b><span>Músculos, vasos e zonas de atenção para planejar com segurança.</span></div></li>
     <li class="reveal"><div><b>Prontuário em nuvem</b><span>Pacientes e avaliações salvos e acessíveis em qualquer aparelho.</span></div></li>
-    <li class="reveal"><div><b>Direto no navegador</b><span>Celular, tablet ou computador, sem instalar pela loja.</span></div></li>
+    <li class="reveal"><div><b>App no celular</b><span>Instale em segundos no Android ou iPhone e use pela tela inicial.</span></div></li>
   </ul>
 </div></section>
 
@@ -105,11 +120,23 @@ footer small{display:block;color:#8f847c;margin-top:6px;max-width:620px}
   <div class="reveal"><h3>Mais agilidade</h3><p>Avaliação completa em poucos minutos, no próprio consultório.</p></div>
 </div></section>
 
-<div class="final"><div class="wrap reveal">
-  <span class="eyebrow">Experimente</span>
-  <h2>Veja o FaceScan em ação</h2>
-  <p>Abra no navegador e conheça a ferramenta na prática.</p>
-  <a class="btn btn-primary" href="https://ellevenmkt.github.io/analise-hof/">Abrir o FaceScan →</a>
+<div class="final" id="baixar"><div class="wrap reveal">
+  <span class="eyebrow">Baixe agora</span>
+  <h2>Leve o FaceScan no seu celular</h2>
+  <p>Gratuito para baixar. Funciona como aplicativo no celular e no tablet, direto da tela inicial.</p>
+  <div class="stores">
+    <a class="store" href="#" data-os="android"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22A11.4 11.4 0 0 0 12 8.08c-1.77 0-3.43.38-4.92 1.06L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg><span><small>Baixar para</small>Android</span></a>
+    <a class="store" href="#" data-os="ios"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31a4.050 4.05 0 0 0-3.18-1.72c-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.88-.76a4.25 4.25 0 0 0-3.6 2.18c-1.54 2.67-.39 6.620 1.1 8.79.73 1.06 1.6 2.25 2.74 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.87.69 1.18-.02 1.93-1.08 2.65-2.14a9.6 9.6 0 0 0 1.2-2.47 3.84 3.84 0 0 1-2.3-3.55zM14.2 6.13A3.8 3.8 0 0 0 15.07 3.4a3.9 3.9 0 0 0-2.53 1.3 3.6 3.6 0 0 0-.9 2.64 3.2 3.2 0 0 0 2.56-1.2z"/></svg><span><small>Baixar para</small>iPhone</span></a>
+  </div>
+</div></div>
+
+<div class="modal" id="dlModal" aria-hidden="true"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="dlTitle">
+  <button class="x" type="button" data-close aria-label="Fechar">×</button>
+  <img src="https://ellevenmkt.github.io/analise-hof/icon-192.png" alt="" class="appicon">
+  <h3 id="dlTitle">Instalar o FaceScan</h3>
+  <ol id="dlSteps"></ol>
+  <a class="btn btn-primary" id="dlGo" href="https://ellevenmkt.github.io/analise-hof/" target="_blank" rel="noopener">Abrir e instalar →</a>
+  <p class="hint" id="dlHint"></p>
 </div></div>
 
 <footer><div class="wrap">
@@ -121,6 +148,16 @@ footer small{display:block;color:#8f847c;margin-top:6px;max-width:620px}
 document.getElementById('yr').textContent=new Date().getFullYear();
 const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),{threshold:.12});
 document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%3)*90+'ms'; io.observe(el); });
+
+const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const STEPS={android:['Toque em <b>Abrir e instalar</b>.','No app, toque em <b>Instalar</b> na faixa que aparece (ou no menu ⋮ do Chrome, em <b>Instalar app</b>).','Pronto: o FaceScan fica na tela inicial como um aplicativo.'],
+ ios:['Abra pelo <b>Safari</b> tocando em <b>Abrir e instalar</b>.','Toque em <b>Compartilhar</b> (o quadrado com a seta para cima).','Escolha <b>Adicionar à Tela de Início</b> e confirme.']};
+function openDl(os){ os=os||(isIOS?'ios':'android'); document.getElementById('dlSteps').innerHTML=STEPS[os].map(t=>'<li>'+t+'</li>').join('');
+  document.getElementById('dlHint').textContent=os==='ios'?'No iPhone, a instalação funciona pelo Safari.':'Funciona no Chrome do Android. No computador, o Chrome e o Edge também permitem instalar.';
+  const m=document.getElementById('dlModal'); m.classList.add('on'); m.setAttribute('aria-hidden','false'); }
+document.querySelectorAll('[data-dl]').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); openDl(); }));
+document.querySelectorAll('[data-os]').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); openDl(a.dataset.os); }));
+document.getElementById('dlModal').addEventListener('click',e=>{ if(e.target.id==='dlModal'||e.target.hasAttribute('data-close')){ e.currentTarget.classList.remove('on'); e.currentTarget.setAttribute('aria-hidden','true'); } });
 </script>
 </body>
 </html>
